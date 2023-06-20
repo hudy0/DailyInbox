@@ -1,5 +1,3 @@
-import pytest
-
 from email_service.accounts.tests.factories import UserFactory
 
 
