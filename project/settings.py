@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import environ
+from django.template.context_processors import static
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(
@@ -13,20 +14,18 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS: list[str] = env('ALLOWED_HOSTS')
 
-DJANGO_APPS = [
+INSTALLED_APPS = [
+    # DJANGO_APPS
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-]
-LOCAL_APPS = [
+    # LOCAL_APPS
     "email_service.accounts",
-
+    # THIRD_PARTY_APPS
 ]
-THIRD_PARTY_APPS = []
-INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -68,7 +67,7 @@ DATABASES = {
     }
 }
 
-# Password validation
+# Authentication
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -85,6 +84,7 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+AUTH_USER_MODEL = 'accounts.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -101,6 +101,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_STORAGE = ''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

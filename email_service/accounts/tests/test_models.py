@@ -1,10 +1,10 @@
-import unittest
+import pytest
+
+from email_service.accounts.tests.factories import UserFactory
 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
+class TestUser:
+    def test_factory(self):
+        user = UserFactory()
 
-
-if __name__ == '__main__':
-    unittest.main()
+        assert user is not None
