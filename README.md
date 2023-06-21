@@ -1,4 +1,4 @@
-# Matchmaker
+# Daily Inbox
 
 ### Local superuser:
 * username: admin_Test
