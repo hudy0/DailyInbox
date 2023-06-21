@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     # THIRD_PARTY_APPS
     "allauth",
     "allauth.account",
+    "allauth.socialaccount",
     # LOCAL_APPS
     "dailyInbox.accounts",
 ]
