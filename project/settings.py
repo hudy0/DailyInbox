@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     # LOCAL_APPS
-    "email_service.accounts",
+    "dailyInbox.accounts",
 ]
 
 MIDDLEWARE = [

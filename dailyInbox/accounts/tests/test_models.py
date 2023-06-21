@@ -1,4 +1,4 @@
-from email_service.accounts.tests.factories import UserFactory
+from dailyInbox.accounts.tests.factories import UserFactory
 
 
 class TestUser:
