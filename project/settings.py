@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     # LOCAL_APPS
     "dailyInbox.accounts",
+    "dailyInbox.core",
 ]
 
 MIDDLEWARE = [
