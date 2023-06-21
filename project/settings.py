@@ -8,6 +8,7 @@ env = environ.Env(
     DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, []),
     ACCOUNT_DEFAULT_HTTP_PROTOCOL=(str, 'https'),
+    EMAIL_BACKEND=(str, 'EMAIL_BACKEND'),
 )
 environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env.example'))
 
@@ -95,13 +96,15 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 SITE_ID = 1
+EMAIL_BACKEND = env("EMAIL_BACKEND")
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 # ACCOUNT_ADAPTER = default
 # ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = default
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
-# TODO: set login url
 # ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = default
-# TODO: set login redirect url
 # ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = default
 # ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = default
 # ACCOUNT_EMAIL_CONFIRMATION_HMAC = default
