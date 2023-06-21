@@ -1,0 +1,8 @@
+Welcome to DailyInbox!
+
+To begin your mail inboxing, you need to verify your email address.
+
+Go to {{ activate_url }}
+
+Regards,
+Hudaifa from DailyInbox
