@@ -51,6 +51,8 @@ pluggy==1.0.0
     # via pytest
 pycparser==2.21
     # via cffi
+# pygraphviz==1.11
+    # via -r requirements.in
 pyjwt[crypto]==2.7.0
     # via django-allauth
 pytest==7.3.2

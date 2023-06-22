@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    'django_extensions',
     # LOCAL_APPS
     "dailyInbox.accounts",
     "dailyInbox.core",
@@ -168,3 +169,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Django-extensions
+GRAPH_MODELS = {
+  'app_labels': ["accounts", "core"],
+    "rankdir": "BT",
+    "output": "models.png"
+}
