@@ -22,9 +22,12 @@ django==4.2.2
     # via
     #   -r requirements.in
     #   django-allauth
+    #   django-extensions
 django-allauth==0.54.0
     # via -r requirements.in
 django-environ==0.10.0
+    # via -r requirements.in
+django-extensions==3.2.3
     # via -r requirements.in
 exceptiongroup==1.1.1
     # via pytest
