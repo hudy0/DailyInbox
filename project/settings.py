@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     # LOCAL_APPS
     "dailyInbox.accounts",
     "dailyInbox.core",
+    'dailyInbox.entries',
 ]
 
 MIDDLEWARE = [
@@ -170,10 +171,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
 # Django-extensions
 GRAPH_MODELS = {
-  'app_labels': ["accounts", "core"],
+    'app_labels': ["accounts", "core"],
     "rankdir": "BT",
     "output": "models.png"
 }
