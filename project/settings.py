@@ -173,7 +173,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Django-extensions
 GRAPH_MODELS = {
-    'app_labels': ["accounts", "core"],
+    'app_labels': ["accounts", "core", "entries"],
     "rankdir": "BT",
     "output": "models.png"
 }
