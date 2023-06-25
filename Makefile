@@ -3,6 +3,9 @@ migrations:
 	python3 manage.py migrate
 	#python3 manage.py runserver
 
+create:
+	python3 manage.py createsuperuser
+
 coverage:
 	pytest --cov=dailyInbox --migrations -n 2 --dist loadfile
 
