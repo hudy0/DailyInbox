@@ -6,3 +6,4 @@ class TestUser:
         """the factory produces a valid instance"""
         user = UserFactory()
         assert user is not None
+
