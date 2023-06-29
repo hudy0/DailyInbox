@@ -1,6 +1,15 @@
 import factory
+from django.db.models.signals import post_save
 
 
 class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = "accounts.User"
+
+
+@factory.django.mute_signals(post_save)
+class AccountFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = "accounts.Account"
+
+    user = factory.SubFactory("dailyInbox.accounts.tests.factories.UserFactory")

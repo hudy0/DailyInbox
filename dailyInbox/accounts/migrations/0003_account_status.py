@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('accounts', '0002_account'),
     ]
@@ -13,6 +12,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='account',
             name='status',
-            field=models.IntegerField(choices=[(1, 'Exempt'), (2, 'Active'), (3, 'Trailing'), (4, 'Canceled'), (5, 'Trial Expired')], db_index=True, default=3),
+            field=models.IntegerField(
+                choices=[(1, 'Exempt'), (2, 'Active'), (3, 'Trailing'), (4, 'Canceled'), (5, 'Trial Expired')],
+                db_index=True, default=3),
         ),
     ]
