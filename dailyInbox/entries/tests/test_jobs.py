@@ -16,3 +16,4 @@ class TestSendMailJob:
         # TODO: assert message
         # TODO: assert html_message
         # TODO: assert from_email
+

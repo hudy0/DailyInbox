@@ -16,3 +16,4 @@ class Job(DailyJob):
                            from_email="Who is this from email",
                            recipient_list=[account.user.email],
                            )
+

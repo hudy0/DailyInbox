@@ -36,3 +36,4 @@ def create_account(instance, sender, created, **keywords):
     """A new user gets an associated account"""
     if created:
         Account.objects.create(user=instance)
+
