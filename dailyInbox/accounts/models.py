@@ -8,6 +8,13 @@ class User(AbstractUser):
     pass
 
 
+class AccountManager(models.Manager):
+    def active(self):
+        """Get all the active accounts."""
+        qs = self.get_queryset()
+        return qs.filter(status__in=self.model.ACTIVE_STATUS)
+
+
 class Account(models.Model):
     """Account holds the users state"""
 
@@ -18,8 +25,10 @@ class Account(models.Model):
         CANCELED = 4
         TRIAL_EXPIRED = 5
 
+    ACTIVE_STATUS = (Status.TRAILING, Status.ACTIVE, Status.EXEMPT)
     user = models.OneToOneField("accounts.User", on_delete=models.CASCADE)
     status = models.IntegerField(choices=Status.choices, default=Status.TRAILING, db_index=True)
+    objects = AccountManager()
 
 
 @receiver(post_save, sender=User)
