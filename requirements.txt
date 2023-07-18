@@ -35,7 +35,7 @@ factory-boy==3.2.1
     # via -r requirements.in
 faker==18.11.2
     # via factory-boy
-gunicorn==20.1.0
+gunicorn==21.1.0
     # via -r requirements.in
 idna==3.4
     # via requests
@@ -44,7 +44,9 @@ iniconfig==2.0.0
 oauthlib==3.2.2
     # via requests-oauthlib
 packaging==23.1
-    # via pytest
+    # via
+    #   gunicorn
+    #   pytest
 pluggy==1.2.0
     # via pytest
 pycparser==2.21
@@ -85,6 +87,3 @@ tokenize-rt==5.1.0
     # via pyupgrade
 urllib3==2.0.3
     # via requests
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
