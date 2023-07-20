@@ -1,4 +1,5 @@
 from django.core import mail
+from django.utils import timezone
 from django_extensions.management.jobs import DailyJob
 
 from dailyInbox.accounts.models import Account
@@ -9,11 +10,13 @@ class Job(DailyJob):
 
     def execute(self):
         accounts = Account.objects.active()
+        today = timezone.localdate()
         for account in accounts:
-            mail.send_mail(subject="Replace this subject",
-                           message="Replace this message",
-                           html_message="Replace this html message",
-                           from_email="Who is this from email",
-                           recipient_list=[account.user.email],
-                           )
-
+            mail.send_mail(
+                # incorporate day of the week
+                subject=f"It's {today:%A} {today:%b} {today:%-d}, 2023 how are you?",
+                message="Replace this message",
+                html_message="Replace this html message",
+                from_email="Who is this from email",
+                recipient_list=[account.user.email],
+            )
