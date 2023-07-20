@@ -10,15 +10,15 @@ certifi==2023.5.7
     # via requests
 cffi==1.15.1
     # via cryptography
-charset-normalizer==3.1.0
+charset-normalizer==3.2.0
     # via requests
 coverage[toml]==7.2.7
     # via pytest-cov
-cryptography==41.0.1
+cryptography==41.0.2
     # via pyjwt
 defusedxml==0.7.1
     # via python3-openid
-django==4.2.2
+django==4.2.3
     # via
     #   -r requirements.in
     #   django-allauth
@@ -29,13 +29,13 @@ django-environ==0.10.0
     # via -r requirements.in
 django-extensions==3.2.3
     # via -r requirements.in
-execnet==1.9.0
+execnet==2.0.2
     # via pytest-xdist
-factory-boy==3.2.1
+factory-boy==3.3.0
     # via -r requirements.in
-faker==18.11.2
+faker==19.1.0
     # via factory-boy
-gunicorn==20.1.0
+gunicorn==21.2.0
     # via -r requirements.in
 idna==3.4
     # via requests
@@ -49,7 +49,7 @@ pluggy==1.2.0
     # via pytest
 pycparser==2.21
     # via cffi
-pyjwt[crypto]==2.7.0
+pyjwt[crypto]==2.8.0
     # via django-allauth
 pytest==7.4.0
     # via
@@ -69,7 +69,7 @@ python-dateutil==2.8.2
     # via faker
 python3-openid==3.2.0
     # via django-allauth
-pyupgrade==3.7.0
+pyupgrade==3.9.0
     # via -r requirements.in
 requests==2.31.0
     # via
@@ -83,7 +83,7 @@ sqlparse==0.4.4
     # via django
 tokenize-rt==5.1.0
     # via pyupgrade
-urllib3==2.0.3
+urllib3==2.0.4
     # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
