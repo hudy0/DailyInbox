@@ -3,7 +3,7 @@ import datetime
 import factory
 
 
-class EntriesFactory(factory.django.DjangoModelFactory):
+class EntryFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = "entries.Entry"
 

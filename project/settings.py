@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+
 import environ
 from django.template.context_processors import static
 
@@ -21,6 +22,7 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
+    "django.contrib.humanize",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
@@ -51,7 +53,7 @@ ROOT_URLCONF = "project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates'],
+        "DIRS": [BASE_DIR / 'dailyInbox/templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

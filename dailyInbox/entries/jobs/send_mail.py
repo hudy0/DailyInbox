@@ -1,22 +1,28 @@
 from django.core import mail
+from django.template.loader import render_to_string
 from django.utils import timezone
 from django_extensions.management.jobs import DailyJob
 
 from dailyInbox.accounts.models import Account
+from dailyInbox.entries.models import Entry
 
 
 class Job(DailyJob):
-    help = "Send mail to active accounts"
+    help = "Sent mail to active accounts"
 
     def execute(self):
-        accounts = Account.objects.active()
+        accounts = Account.objects.active().select_related("user")
         today = timezone.localdate()
         for account in accounts:
+            # TODO: get *random* entry
+            entry = Entry.objects.filter(user=account.user).last()
+            context = {"entry": entry}
+            text_message = render_to_string("entries/email/prompt.txt", context)
+            html_message = render_to_string("entries/email/prompt.html", context)
             mail.send_mail(
-                # incorporate day of the week
-                subject=f"It's {today:%A} {today:%b} {today:%-d}, 2023 how are you?",
-                message="Replace this message",
-                html_message="Replace this html message",
-                from_email="Who is this from email",
+                subject=f"It's {today:%A}, {today:%b}. {today:%-d}, how are you?",
+                message=text_message,
+                html_message=html_message,
+                from_email="who is this from email",
                 recipient_list=[account.user.email],
             )
