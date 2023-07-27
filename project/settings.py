@@ -10,6 +10,7 @@ env = environ.Env(
     ALLOWED_HOSTS=(list, []),
     ACCOUNT_DEFAULT_HTTP_PROTOCOL=(str, 'https'),
     EMAIL_BACKEND=(str, 'EMAIL_BACKEND'),
+    SENTRY_ENABLED=(bool, True),
 )
 environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env.example'))
 
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     "dailyInbox.accounts",
     "dailyInbox.core",
     'dailyInbox.entries',
+    'dailyInbox.sentry',
 ]
 
 MIDDLEWARE = [
@@ -180,3 +182,8 @@ GRAPH_MODELS = {
     "rankdir": "BT",
     "output": "models.png"
 }
+
+
+# sentry_sdk
+SENTRY_ENABLED = env("SENTRY_ENABLED")
+SENTRY_DSN = env("SENTRY_DSN")
