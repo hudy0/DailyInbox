@@ -15,8 +15,7 @@ class Job(DailyJob):
         today = timezone.localdate()
         for account in accounts:
             # TODO: get *random* entry
-            entry = Entry.objects.filter(user=account.user).last()
-            context = {"entry": entry}
+            context = {"entry": Entry.objects.get_random_for(account.user)}
             text_message = render_to_string("entries/email/prompt.txt", context)
             html_message = render_to_string("entries/email/prompt.html", context)
             mail.send_mail(
