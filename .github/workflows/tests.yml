@@ -10,6 +10,9 @@ jobs:
         env:
             ALLOWED_HOSTS: '*'
             SECRET_KEY: 'a secret to everybody'
+            EMAIL_SENDGRID_REPLY_TO: 'reply-to@sendgrid.com'
+            SENTRY_ENABLED: 'off'
+            SENTRY_DSN: 'sentry_example'
 
         steps:
             -   name: Get the code

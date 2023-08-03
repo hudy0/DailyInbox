@@ -12,7 +12,7 @@ env = environ.Env(
     EMAIL_BACKEND=(str, 'EMAIL_BACKEND'),
     SENTRY_ENABLED=(bool, True),
 )
-environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env.example'))
+environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env'))
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env('DEBUG')
@@ -182,7 +182,6 @@ GRAPH_MODELS = {
     "rankdir": "BT",
     "output": "models.png"
 }
-
 
 # sentry_sdk
 SENTRY_ENABLED = env("SENTRY_ENABLED")
