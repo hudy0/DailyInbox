@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from simple_history.models import HistoricalRecords
 
 
 class User(AbstractUser):
@@ -28,6 +29,7 @@ class Account(models.Model):
     ACTIVE_STATUS = (Status.TRAILING, Status.ACTIVE, Status.EXEMPT)
     user = models.OneToOneField("accounts.User", on_delete=models.CASCADE)
     status = models.IntegerField(choices=Status.choices, default=Status.TRAILING, db_index=True)
+    history = HistoricalRecords()
     objects = AccountManager()
 
 
@@ -36,4 +38,3 @@ def create_account(instance, sender, created, **keywords):
     """A new user gets an associated account"""
     if created:
         Account.objects.create(user=instance)
-

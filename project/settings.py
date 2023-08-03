@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     'django_extensions',
+    'simple_history',
     # LOCAL_APPS
     "dailyInbox.accounts",
     "dailyInbox.core",
