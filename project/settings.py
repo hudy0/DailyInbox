@@ -9,7 +9,7 @@ env = environ.Env(
     DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, []),
     ACCOUNT_DEFAULT_HTTP_PROTOCOL=(str, 'https'),
-    EMAIL_BACKEND=(str, 'EMAIL_BACKEND'),
+    EMAIL_BACKEND=(str, 'anymail.backends.sendgrid.EmailBackend'),
     SENTRY_ENABLED=(bool, True),
 )
 environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env'))
@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     'django_extensions',
     'simple_history',
+    'anymail',
     # LOCAL_APPS
     "dailyInbox.accounts",
     "dailyInbox.core",
@@ -99,16 +100,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 AUTH_USER_MODEL = 'accounts.User'
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
-SITE_ID = 1
+
+# email
 EMAIL_BACKEND = env("EMAIL_BACKEND")
-EMAIL_SENDGRID_REPLY_TO = env("EMAIL_SENDGRID_REPLY_TO")
+DEFAULT_FROM_EMAIL = "noreplay@dailyInbox.com"
+SERVER_EMAIL = "noreplay-server@dailyInbox.com"
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+# django-allauth
 # ACCOUNT_ADAPTER = default
 # ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = default
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -152,6 +152,11 @@ ACCOUNT_USERNAME_REQUIRED = False
 # ACCOUNT_USERNAME_VALIDATORS = default
 # SOCIAL_ACCOUNT_* = default
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+SITE_ID = 1
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -176,6 +181,12 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# anymail
+ANYMAIL = {
+    "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
+}
+EMAIL_SENDGRID_REPLY_TO = env("EMAIL_SENDGRID_REPLY_TO")
 
 # Django-extensions
 GRAPH_MODELS = {
