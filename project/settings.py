@@ -11,8 +11,13 @@ env = environ.Env(
     ACCOUNT_DEFAULT_HTTP_PROTOCOL=(str, 'https'),
     EMAIL_BACKEND=(str, 'anymail.backends.sendgrid.EmailBackend'),
     SENTRY_ENABLED=(bool, True),
+    SECURE_HSTS_SECOND=(int, 60 * 60 * 24 * 365),
+    SECURE_SSL_REDIRECT=(bool, True),
+    SESSION_COOKIE_SECURE=(bool, True),
+    CSRF_COOKIE_SECURE=(bool, True),
+    SECURE_HSTS_PRELOAD=(bool, True),
 )
-environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env'))
+environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env.example'))
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env('DEBUG')
@@ -162,13 +167,17 @@ SITE_ID = 1
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
 
+# Security
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_SECONDS = env('SECURE_HSTS_SECONDS')
+SECURE_SSL_REDIRECT = env('SECURE_SSL_REDIRECT')
+SESSION_COOKIE_SECURE = env('SESSION_COOKIE_SECURE')
+CSRF_COOKIE_SECURE = env('CSRF_COOKIE_SECURE')
+SECURE_HSTS_PRELOAD = env('SECURE_HSTS_PRELOAD')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
