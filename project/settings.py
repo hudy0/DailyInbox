@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+import dj_database_url
 import environ
 from django.template.context_processors import static
 
@@ -16,6 +17,8 @@ env = environ.Env(
     SESSION_COOKIE_SECURE=(bool, True),
     CSRF_COOKIE_SECURE=(bool, True),
     SECURE_HSTS_PRELOAD=(bool, True),
+    DATABASE_CONN_MAX_AGE=(int, 600),
+    DATABASE_SSL_REQUIRE=(bool, True),
 )
 environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env.example'))
 
@@ -74,17 +77,26 @@ TEMPLATES = [
         },
     },
 ]
-
+# As of Django 4.1, the cached loader is used in development mode.
+# runserver works around this in some manner, but Gunicorn does not.
+# Override the loaders to get non-cached behavior.
+if DEBUG:
+    # app_dirs isn't allowed to be True when the loaders key is present.
+    TEMPLATES[0]["APP_DIRS"] = False
+    TEMPLATES[0]["OPTIONS"]["loaders"] = [
+        "django.template.loaders.filesystem.Loader",
+        "django.template.loaders.app_directories.Loader",
+    ]
 WSGI_APPLICATION = "project.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": dj_database_url.config(
+        conn_max_age=env("DATABASE_CONN_MAX_AGE"),
+        ssl_require=env("DATABASE_SSL_REQUIRE"),
+    )
 }
 
 # Authentication

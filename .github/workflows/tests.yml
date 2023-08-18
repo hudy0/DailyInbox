@@ -15,6 +15,7 @@ jobs:
       SENTRY_DSN: 'sentry_example'
       SENDGRID_API_KEY: 'fake-apikey'
       SECURE_SSL_REDIRECT: 'off'
+      DATABASE_SSL_REQUIRE: 'off'
 
     steps:
       - name: Get the code
@@ -46,5 +47,5 @@ jobs:
       - name: Check deploy configuration
         run: python3 manage.py check --deploy --fail-level WARNING
         env:
-          DATABASE_URL: 'sqlite://:memory:'
+#          DATABASE_URL: 'sqlite://:memory:'
           SECRET_KEY: 'zt(6jlr#oquxm2t%ryh#n+-72p^(3knbf&q$5x16#o%1im-s7!'
