@@ -53,3 +53,4 @@ jobs:
           SESSION_COOKIE_SECURE: 'on'
           CSRF_COOKIE_SECURE: 'on'
           SECURE_HSTS_PRELOAD: 'on'
+          DEBUG: 'off'
