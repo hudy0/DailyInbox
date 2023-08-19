@@ -57,6 +57,10 @@ packaging==23.1
     # via pytest
 pluggy==1.2.0
     # via pytest
+psycopg[binary]==3.1.10
+    # via -r requirements.in
+psycopg-binary==3.1.10
+    # via psycopg
 pycparser==2.21
     # via cffi
 pyjwt[crypto]==2.8.0
@@ -99,7 +103,9 @@ sqlparse==0.4.4
 tokenize-rt==5.2.0
     # via pyupgrade
 typing-extensions==4.7.1
-    # via dj-database-url
+    # via
+    #   dj-database-url
+    #   psycopg
 urllib3==2.0.4
     # via
     #   requests
