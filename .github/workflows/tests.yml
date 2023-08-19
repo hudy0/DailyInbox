@@ -52,3 +52,4 @@ jobs:
           SECURE_SSL_REDIRECT: 'on'
           SESSION_COOKIE_SECURE: 'on'
           CSRF_COOKIE_SECURE: 'on'
+          SECURE_HSTS_PRELOAD: 'on'
