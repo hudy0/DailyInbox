@@ -9,7 +9,7 @@
 <body>
 <p>How are you? Reply to this prompt to update your journal.</p>
 {% if entry %}
-    <p>On your daily on {{ entry.when|date:"l, M. j, Y" }} ({{ entry.when|naturalday }}), you wrote:</p>
+    <p>On your daily on {{ entry.when|date:"l, M. j, Y" }} ({{ entry.when|timesince:today }}), you wrote:</p>
 
     {{ entry.body|linebreaks }}
 {% else %}
