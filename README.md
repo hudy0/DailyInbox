@@ -1,6 +1,21 @@
 # Daily Inbox
 
 ### Local superuser:
-* username: admin
-* email: admin@test.com
-* password: QSOLEL39QA
+
+username:
+
+```shell
+admin
+```
+
+email:
+
+```shell
+admin@test.com
+```
+
+password:
+
+```shell
+QSOLEL39QA
+```
