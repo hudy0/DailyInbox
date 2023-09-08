@@ -47,7 +47,7 @@ factory-boy==3.3.0
     # via -r requirements.in
 faker==19.2.0
     # via factory-boy
-gunicorn==20.1.0
+gunicorn==21.2.0
     # via -r requirements.in
 idna==3.4
     # via requests
@@ -56,7 +56,9 @@ iniconfig==2.0.0
 oauthlib==3.2.2
     # via requests-oauthlib
 packaging==23.1
-    # via pytest
+    # via
+    #   gunicorn
+    #   pytest
 pluggy==1.2.0
     # via pytest
 psycopg[binary]==3.1.10
@@ -117,6 +119,3 @@ urllib3==2.0.4
     # via
     #   requests
     #   sentry-sdk
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
