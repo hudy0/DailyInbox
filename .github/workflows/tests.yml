@@ -17,6 +17,7 @@ jobs:
       ANYMAIL_WEBHOOK_SECRET: random16:random16
       SECURE_SSL_REDIRECT: 'off'
       DATABASE_SSL_REQUIRE: 'off'
+      SECURE_HSTS_SECONDS: 'off'
 
     steps:
       - name: Get the code
