@@ -2,8 +2,6 @@ import sentry_sdk
 from django.apps import AppConfig
 from django.conf import settings
 from sentry_sdk.integrations.django import DjangoIntegration
-
-
 # from dailyInbox.sentry.dsn_config import SENTRY_DSN
 
 
@@ -35,7 +33,7 @@ class SentryConfig(AppConfig):
             return
 
     sentry_sdk.init(
-        dsn=settings.SENTRY_DSN,
+        dsn="https://f731863cf6ad44bbb7cd4e1e2713d871@o4505600011534336.ingest.sentry.io/4505600022151168",
         integrations=[DjangoIntegration()],
         traces_sampler=traces_sampler,
         send_default_pii=True,
