@@ -14,6 +14,7 @@ class TestSendMailJob:
         body = "This is the entry.\n\nIt has newlines."
         entry = EntryFactory(user=user, body=body)
         job = SendMailJob()
+
         job.execute()
 
         assert len(mailoutbox) == 1
@@ -29,6 +30,7 @@ class TestSendMailJob:
         """The message indicates that a previous entry will appear once it exists."""
         UserFactory()
         job = SendMailJob()
+
         job.execute()
 
         assert len(mailoutbox) == 1

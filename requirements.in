@@ -11,6 +11,6 @@ django-extensions==3.2.3
 pyupgrade
 sentry-sdk==1.28.1
 django-simple-history==3.3.0
-django-anymail[Sendgrid]==1.0
+django-anymail[sendgrid]
 dj-database-url==2.1.0
 psycopg[binary]==3.1.10

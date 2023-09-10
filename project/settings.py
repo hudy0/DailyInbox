@@ -20,7 +20,7 @@ env = environ.Env(
     DATABASE_CONN_MAX_AGE=(int, 600),
     DATABASE_SSL_REQUIRE=(bool, True),
 )
-environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env.example'))
+environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env'))
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env('DEBUG')
@@ -57,6 +57,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -205,6 +206,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # anymail
 ANYMAIL = {
     "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
+    "WEBHOOK_SECRET": env("ANYMAIL_WEBHOOK_SECRET"),
 }
 EMAIL_SENDGRID_REPLY_TO = env("EMAIL_SENDGRID_REPLY_TO")
 
