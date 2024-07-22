@@ -18,9 +18,12 @@ def test_handle_inbound():
     esp_name = "test_esp"
 
     # Patch the print function to verify its output
-    with patch('builtins.print') as mock_print:
+    with patch("builtins.print") as mock_print:
         handle_inbound(sender, mock_event, esp_name)
         mock_print.assert_called_once_with(
-            "Received message from %s (envelope sender %s) with subject '%s'" % (
-                mock_message.from_email, mock_message.envelope_sender, mock_message.subject)
+            "Received message from {} (envelope sender {}) with subject '{}'".format(
+                mock_message.from_email,
+                mock_message.envelope_sender,
+                mock_message.subject,
+            )
         )

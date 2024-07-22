@@ -1,5 +1,5 @@
 from dailyInbox.accounts.models import Account
-from dailyInbox.accounts.tests.factories import UserFactory, AccountFactory
+from dailyInbox.accounts.tests.factories import AccountFactory, UserFactory
 
 
 class TestAccount:

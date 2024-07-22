@@ -9,8 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(
     DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, []),
-    ACCOUNT_DEFAULT_HTTP_PROTOCOL=(str, 'https'),
-    EMAIL_BACKEND=(str, 'anymail.backends.sendgrid.EmailBackend'),
+    ACCOUNT_DEFAULT_HTTP_PROTOCOL=(str, "https"),
+    EMAIL_BACKEND=(str, "anymail.backends.sendgrid.EmailBackend"),
     SENTRY_ENABLED=(bool, True),
     SECURE_HSTS_SECOND=(int, 60 * 60 * 24 * 365),
     SECURE_SSL_REDIRECT=(bool, True),
@@ -20,11 +20,11 @@ env = environ.Env(
     DATABASE_CONN_MAX_AGE=(int, 600),
     DATABASE_SSL_REQUIRE=(bool, True),
 )
-environ.Env.read_env(os.path.join(BASE_DIR / 'project/.env'))
+environ.Env.read_env(os.path.join(BASE_DIR / "project/.env"))
 
 SECRET_KEY = env("SECRET_KEY")
-DEBUG = env('DEBUG')
-ALLOWED_HOSTS: list[str] = env('ALLOWED_HOSTS')
+DEBUG = env("DEBUG")
+ALLOWED_HOSTS: list[str] = env("ALLOWED_HOSTS")
 
 INSTALLED_APPS = [
     # DJANGO_APPS
@@ -39,14 +39,14 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    'django_extensions',
-    'simple_history',
-    'anymail',
+    "django_extensions",
+    "simple_history",
+    "anymail",
     # LOCAL_APPS
     "dailyInbox.accounts",
     "dailyInbox.core",
-    'dailyInbox.entries',
-    'dailyInbox.sentry',
+    "dailyInbox.entries",
+    "dailyInbox.sentry",
 ]
 
 MIDDLEWARE = [
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'simple_history.middleware.HistoryRequestMiddleware',
+    "simple_history.middleware.HistoryRequestMiddleware",
     # "allauth.account.middleware.AccountMiddleware",
 ]
 
@@ -66,7 +66,7 @@ ROOT_URLCONF = "project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'dailyInbox/templates'],
+        "DIRS": [BASE_DIR / "dailyInbox/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -117,28 +117,28 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = "accounts.User"
 
 # email
 EMAIL_BACKEND = env("EMAIL_BACKEND")
 DEFAULT_FROM_EMAIL = "noreplay@dailyInbox.com"
 SERVER_EMAIL = "noreplay-server@dailyInbox.com"
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 # django-allauth
 # ACCOUNT_ADAPTER = default
 # ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = default
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 # ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = default
 # ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = default
 # ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = default
 # ACCOUNT_EMAIL_CONFIRMATION_HMAC = default
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_EMAIL_SUBJECT_PREFIX = 'EmailService'
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = env('ACCOUNT_DEFAULT_HTTP_PROTOCOL')
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "EmailService"
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = env("ACCOUNT_DEFAULT_HTTP_PROTOCOL")
 # ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = default
 # ACCOUNT_EMAIL_MAX_LENGTH = default
 # ACCOUNT_MAX_EMAIL_ADDRESSES = default
@@ -171,8 +171,8 @@ ACCOUNT_USERNAME_REQUIRED = False
 # SOCIAL_ACCOUNT_* = default
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 SITE_ID = 1
 
@@ -186,11 +186,11 @@ USE_TZ = True
 
 # Security
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_SECONDS = env('SECURE_HSTS_SECONDS')
-SECURE_SSL_REDIRECT = env('SECURE_SSL_REDIRECT')
-SESSION_COOKIE_SECURE = env('SESSION_COOKIE_SECURE')
-CSRF_COOKIE_SECURE = env('CSRF_COOKIE_SECURE')
-SECURE_HSTS_PRELOAD = env('SECURE_HSTS_PRELOAD')
+SECURE_HSTS_SECONDS = env("SECURE_HSTS_SECONDS")
+SECURE_SSL_REDIRECT = env("SECURE_SSL_REDIRECT")
+SESSION_COOKIE_SECURE = env("SESSION_COOKIE_SECURE")
+CSRF_COOKIE_SECURE = env("CSRF_COOKIE_SECURE")
+SECURE_HSTS_PRELOAD = env("SECURE_HSTS_PRELOAD")
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -213,9 +213,9 @@ EMAIL_SENDGRID_REPLY_TO = env("EMAIL_SENDGRID_REPLY_TO")
 
 # Django-extensions
 GRAPH_MODELS = {
-    'app_labels': ["accounts", "core", "entries"],
+    "app_labels": ["accounts", "core", "entries"],
     "rankdir": "BT",
-    "output": "models.png"
+    "output": "models.png",
 }
 
 # sentry_sdk

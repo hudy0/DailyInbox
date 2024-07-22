@@ -4,8 +4,8 @@ from simple_history.admin import SimpleHistoryAdmin
 
 from .models import Account, User
 
-
 # admin.site.register(User, UserAdmin)
+
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
