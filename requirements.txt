@@ -15,9 +15,7 @@ cffi==1.15.1
 charset-normalizer==3.2.0
     # via requests
 coverage[toml]==7.3.1
-    # via
-    #   coverage
-    #   pytest-cov
+    # via pytest-cov
 cryptography==42.0.4
     # via
     #   django-anymail
@@ -52,7 +50,7 @@ factory-boy==3.3.0
     # via -r requirements.in
 faker==19.6.0
     # via factory-boy
-gunicorn==20.1.0
+gunicorn==22.0.0
     # via -r requirements.in
 idna==3.7
     # via requests
@@ -61,7 +59,9 @@ iniconfig==2.0.0
 oauthlib==3.2.2
     # via requests-oauthlib
 packaging==23.1
-    # via pytest
+    # via
+    #   gunicorn
+    #   pytest
 pluggy==1.3.0
     # via pytest
 psycopg-binary==3.2.1
@@ -69,9 +69,7 @@ psycopg-binary==3.2.1
 pycparser==2.21
     # via cffi
 pyjwt[crypto]==2.8.0
-    # via
-    #   django-allauth
-    #   pyjwt
+    # via django-allauth
 pytest==7.4.2
     # via
     #   pytest-cov
@@ -120,6 +118,3 @@ urllib3==2.0.7
     #   django-anymail
     #   requests
     #   sentry-sdk
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
