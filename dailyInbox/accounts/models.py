@@ -29,9 +29,7 @@ class Account(models.Model):
 
     ACTIVE_STATUS = (Status.TRAILING, Status.ACTIVE, Status.EXEMPT)
     user = models.OneToOneField("accounts.User", on_delete=models.CASCADE)
-    status = models.IntegerField(
-        choices=Status.choices, default=Status.TRAILING, db_index=True
-    )
+    status = models.IntegerField(choices=Status.choices, default=Status.TRAILING, db_index=True)
     history = HistoricalRecords()
     objects = AccountManager()
 
