@@ -111,7 +111,7 @@ typing-extensions==4.7.1
     # via
     #   asgiref
     #   dj-database-url
-urllib3==2.0.7
+urllib3==2.2.2
     # via
     #   django-anymail
     #   requests
