@@ -15,9 +15,7 @@ cffi==1.15.1
 charset-normalizer==3.2.0
     # via requests
 coverage[toml]==7.3.1
-    # via
-    #   coverage
-    #   pytest-cov
+    # via pytest-cov
 cryptography==42.0.4
     # via
     #   django-anymail
@@ -69,9 +67,7 @@ psycopg-binary==3.2.1
 pycparser==2.21
     # via cffi
 pyjwt[crypto]==2.8.0
-    # via
-    #   django-allauth
-    #   pyjwt
+    # via django-allauth
 pytest==7.4.2
     # via
     #   pytest-cov
@@ -115,7 +111,7 @@ typing-extensions==4.7.1
     # via
     #   asgiref
     #   dj-database-url
-urllib3==2.0.7
+urllib3==2.2.2
     # via
     #   django-anymail
     #   requests
