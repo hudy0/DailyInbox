@@ -3,8 +3,6 @@ from django.apps import AppConfig
 from django.conf import settings
 from sentry_sdk.integrations.django import DjangoIntegration
 
-# from dailyInbox.sentry.dsn_config import SENTRY_DSN
-
 
 def traces_sampler(sampling_context):
     """
