@@ -24,7 +24,9 @@ class Entry(models.Model):
     body = models.TextField()
     when = models.DateField()
     user = models.ForeignKey(
-        "accounts.User", on_delete=models.CASCADE, related_name="entries"
+        "accounts.User",
+        on_delete=models.CASCADE,
+        related_name="entries",
     )
     objects = EntryManager()
 
