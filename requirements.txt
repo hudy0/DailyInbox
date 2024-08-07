@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-asgiref==3.7.2
+asgiref==3.8.1
     # via django
 certifi==2024.7.4
     # via
@@ -24,7 +24,7 @@ defusedxml==0.7.1
     # via python3-openid
 dj-database-url==2.1.0
     # via -r requirements.in
-django==4.2.14
+django==5.1
     # via
     #   -r requirements.in
     #   dj-database-url
